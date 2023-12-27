@@ -7,7 +7,7 @@ const CONFIG = {
     useUnifiedTopology: true
 }
 
-mongoose.connect(DATABASE_URL, CONFIG)
+mongoose.connect(DATABASE_URL)
 
 mongoose.connection
     .on("open" , () => console.log("CONNECTED TO MONGOOSE XD"))
