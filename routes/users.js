@@ -22,7 +22,7 @@ router.post("/signup" , async (req,res) => {
 
 router.post("/login", async (req,res) => {
   const {username , password} = req.body
-  const user = User.findOne({username})
+  const user = await User.findOne({username})
   if (!user){
     res.send("USER DOES NOT EXIST")
   } else {
@@ -38,6 +38,13 @@ router.post("/login", async (req,res) => {
       res.send("WRONG PASSWORD")
     } 
   }
+})
+
+router.get("/logout", (req,res) => {
+  req.session.destroy((err) => {
+    res.send("LOGGED OUT")
+    //redirect here?
+  })
 })
 
 module.exports = router
