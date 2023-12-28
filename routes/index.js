@@ -1,11 +1,17 @@
 var express = require('express');
 var router = express.Router();
-//const Event = require("../models/event.js")
+const Event = require("../models/event.js")
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Expressss' });
+router.get('/', async function(req, res, next) {
+  //const data = await Event.find({})
+  res.render('index', { title: 'Expressss'});
 });
+
+router.get('/events', async (req, res) => {
+  const data = await Event.find({})
+  res.render('events.ejs', {events : data})
+})
 
 
 

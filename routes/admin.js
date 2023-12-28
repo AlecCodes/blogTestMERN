@@ -6,6 +6,16 @@ router.get("/", (req, res) => {
     res.json("YOOOOOOO ADMIN")
 })
 
+router.get("/index", async (req, res) => {
+    try{
+        const events = await Event.find({})
+        res.json(events)
+    } catch (error){
+        console.error(error)
+        res.status(500).json({error:"BAD ERROR NOO"})
+    }
+})
+
 router.post('/' , async (req, res) => {
 
     try {
