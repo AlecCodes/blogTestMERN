@@ -30,9 +30,13 @@ app.use(session({
     saveUninitialized: true
 }))
 
+function authenticate(req, res, next){
+  return (req.session.loggedIn) ? next() : res.status(401).send("Unauthorized XD")
+}
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/admin', adminRouter);
+app.use('/admin', authenticate, adminRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
