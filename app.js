@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 require('dotenv').config()
+const session = require("express-session")
+const MongoStore = require("connect-mongo")
 const PORT = process.env.PORT || 3000
 
 const adminRouter = require("./routes/admin")
@@ -21,6 +23,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+    secret: process.env.SECRET,
+    store: MongoStore.create({mongoUrl : process.env.DATABASE_URL}),
+    resave: false,
+    saveUninitialized: true
+}))
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
