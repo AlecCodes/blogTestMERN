@@ -25,7 +25,8 @@ router.post('/createEvent' , async (req, res) => {
     try {
         console.log(req.body)
         const event = await Event.create(req.body)
-        res.status(201).json({message : 'event created successfully: ' + event})
+        res.redirect('/')
+
     } catch(error){
         console.error(error)
         res.status(500).json({error: "Bad error omg"})
