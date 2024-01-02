@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  /* padding: 50px; */
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -9,4 +9,33 @@ a {
 
 h1{
   color: #00B7FF;
+}
+
+#titleCardContainer{
+  background-image: url('https://lh4.googleusercontent.com/nS36DvkDiKyHriM_Qyhw4bOtlDRttk4FEze0dZoZxCE-StjyPgv7vB_T3UhccU76t7YU-IJOinGLkiLvXatQhL0=w16383');
+  background-size: cover;
+  background-position: center;
+  height: 600px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#titleCardContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Adjust the alpha value to control the darkness */
+}
+
+
+#titleCard{
+  color: white;
+  position: absolute;
+  font-size: 90px;
+  z-index: 1;
 }
