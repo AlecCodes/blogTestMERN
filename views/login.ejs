@@ -4,7 +4,20 @@
     <body>
         <main>
             <%- include('../partials/navbar.ejs') %>
-            <h1>LOGIN!</h1>
+            <h1>LOGIN</h1>
+            <form action="/users/login" method="post">
+                <input 
+                type="text"
+                name="username"
+                placeholder="username"
+                />
+                <input
+                type="text"
+                name="password"
+                placeholder="password"
+                />
+                <input type="submit"/>
+            </form>
         </main>
     </body>
 </html>
