@@ -7,6 +7,10 @@ router.get("/", (req,res) => {
     res.send("UESRRR RIOUTTEE")
 })
 
+router.get("/login" , (req, res) => {
+  res.render('login.ejs', {title: "logins"})
+})
+
 router.post("/signup" , async (req,res) => {
   req.body.password = await bcrypt.hash(req.body.password, await bcrypt.genSalt(10))
 
