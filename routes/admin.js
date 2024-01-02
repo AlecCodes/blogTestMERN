@@ -16,9 +16,14 @@ router.get("/index", async (req, res) => {
     }
 })
 
-router.post('/' , async (req, res) => {
+router.get('/createEvent', (req,res) => {
+    res.render('createEvent.ejs')
+})
+
+router.post('/createEvent' , async (req, res) => {
 
     try {
+        console.log(req.body)
         const event = await Event.create(req.body)
         res.status(201).json({message : 'event created successfully: ' + event})
     } catch(error){

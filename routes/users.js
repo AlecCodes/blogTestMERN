@@ -36,7 +36,7 @@ router.post("/login", async (req,res) => {
       //verify loggedIn in authentication middleware to protect admin route?
       req.session.loggedIn = true
       console.log("ARE YOU LOGGED IN? " + req.session.loggedIn)
-      res.send("Logged in! Welcome " + user.username)
+      res.redirect('/admin/createEvent')
       //PUT REDIRECTS HERE!
     } else {
       res.send("WRONG PASSWORD")
@@ -47,7 +47,6 @@ router.post("/login", async (req,res) => {
 router.get("/logout", (req,res) => {
   req.session.destroy((err) => {
     res.render("logout.ejs")
-    //redirect here?
   })
 })
 

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("../partials/head.ejs") %>
+
+    <body>
+        <main>
+            <%- include('../partials/navbar.ejs') %>
+            <h1>CREATE EVENT</h1>
+            <form method="post" to="/admin/createEvent">
+                <input type="text" name="name"/>
+                <textarea type="textarea" name="description"/></textarea>
+                <input type="date" name="date"/>
+                <input type="submit"/>
+            </form>
+        </main>
+    </body>
+
+</html>
